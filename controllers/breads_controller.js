@@ -22,11 +22,14 @@ breads.get('/new', (req, res) => {
 breads.get('/:id', (req, res) => {
   Bread.findById(req.params.id)
       .then(foundBread => {
-          res.render('show', {
-              bread: foundBread
-          })
+        const bakedBy = foundBread.getBakedBy() 
+        console.log(bakedBy)
+        res.render('show', {
+            bread: foundBread
+        })
       })
-})
+    })
+
 
 // CREATE
 breads.post('/', (req, res) => {

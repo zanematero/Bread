@@ -19,9 +19,14 @@ const bakerSchema = new Schema({
 
 // Virtuals:
 bakerSchema.virtual('breads', {
-    ref: 'Bread',
+    ref: Bread,
     localField: '_id',
     foreignField: 'baker'
+})
+
+bakerSchema.post('findOneAndDelete', function() {
+    Bread.deleteMany({baker: this._conditions._id})
+        .then(status => console.log(status))
 })
 
 // model and export

@@ -10,8 +10,8 @@ function Index ({breads, bakers, title}) {
             {
                 bakers.map((baker) => {
                     return(
-                        <li key={baker.id}>
-                            <a href={`/bakers/${baker.id}`}>{baker.name}</a>
+                        <li key={baker._id}>
+                            <a href={`/bakers/${baker._id}`}>{baker.name}</a>
                         </li>
                     )
                 })
@@ -22,10 +22,10 @@ function Index ({breads, bakers, title}) {
         {/* This is a JSX comment. */}
         <ul>
             {
-                breads.map((bread, index)=> {
+                breads.map((bread)=> {
                     return (
-                        <li key={index}>
-                            <a href={`/breads/${bread.id}`}>
+                        <li key={bread._id}>
+                            <a href={`/breads/${bread._id}`}>
                                 {bread.name}
                             </a>
                         </li>
@@ -34,12 +34,10 @@ function Index ({breads, bakers, title}) {
             }
         </ul>
         <div className="newButton">
-  <a href="/breads/new"><button>Add a new bread</button></a>
-</div>
-
+            <a href="/breads/new"><button>Add a new bread</button></a>
+        </div>
     </Default>
-      
-    )
+)
 }
 
 module.exports = Index
